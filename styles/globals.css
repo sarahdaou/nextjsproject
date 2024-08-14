@@ -1,107 +1,354 @@
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
-
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
-
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+html, body {
+  height: 100%; /* ensures the full height */
+}
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+body {
+  display: flex;
+  flex-direction: column; /* ensures footer sticks at the bottom */
+  min-height: 100vh; /* minimum height for the body */
+  font-family: Arial, sans-serif;
+}
 
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
+.main-content{
+  flex: 1;
+}
 
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
+.layout {
+  width: 100%;
+  max-width: 1536px; /* Maximum width */
+  margin: auto;
+  padding: 0 15px; 
+  overflow: hidden;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #333;
+  padding: 0.1rem 0;
+}
+
+.navbar-content{
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+.navlinks {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  align-items: center;
+  justify-content: flex-end; 
+  width: 100%;
+}
+
+.links {
+  margin-left: 2%; 
+  margin-right:2%
+}
+
+.navlinks .last-link {
+  margin-right: 1.5%; 
+}
+
+.navlinks a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px; 
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.navlinks a:hover {
+  color: #cccc; 
+  text-decoration: underline;
+}
+
+.burger-menu {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000;
+  padding-right: 25px; /* Add right padding on mobile */
+}
+
+.burger-menu .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .logo{
+      width: 70px;
+      height: auto;
+  }
+
+  .navlinks {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background-color: #333;
+      width: 30%;
+      padding: 1rem;
+      z-index: 999;
+  }
+
+  .navlinks.active {
+      display: flex; 
+  }
+
+  .burger-menu {
+      display: block;
   }
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.banner{
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 92.75px); /* Adjust based on your navbar height */
+  background: url('/background.jpg') no-repeat center center;  
+  background-size: cover; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; /* Center content vertically */
+  text-align: center; /* Center text horizontally */
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+.text-overlay {
+  color: #333;
+  font-size: 48px; /* Increase font size */
+  background: none; /* Remove background */
+  padding: 10px 20px; /* Add padding if necessary */
+  z-index: 2; 
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bolder;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@media (max-width: 768px) {
+  .banner{
+      position: relative;
+      width: 100%;
+      min-height: calc(100vh - 63.89px); /* Adjust based on your navbar height */
+      background: url('/background.jpg') no-repeat center center; 
+      background-size: cover; 
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+      justify-content: center; /* Center content vertically */
+      text-align: center; /* Center text horizontally */
+  }
+
+  .text-overlay{
+      font-size: 30px;
+  }
 }
 
-a {
-  color: inherit;
+.banner-button {
+  display: inline-block; /* Ensures it behaves like a button */
+  margin-top: 20px; /* Space above button */
+  padding: 10px 20px; 
+  background-color: #333;
+  color: #fff; 
+  border: none; 
+  font-size: 18px; /* Font size */
+  cursor: pointer; 
+  text-decoration: none; 
+  border-radius: 5px; 
+}
+
+.banner-button:hover {
+  background-color: #555;
+}
+
+.about-us .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.about-us img.about-image {
+  flex: 1 1 auto;
+  width: 45%; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-right: 20px; /* Space between image and text */
+}
+
+.about-us .about-text {
+  flex: 2 1 auto;
+  font-size: 18px; /* Adjustable font size */
+  text-align: justify;
+  color: #000;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Responsive design for mobile view */
+@media (max-width: 768px) {
+  .about-us .container {
+      flex-direction: column;
+      text-align: center;
   }
+
+  .about-us img.about-image {
+      width: 60%; /* Full width on mobile */
+      margin-bottom: 20px; /* Space below the image */
+  }
+
+  .about-us .about-text {
+      text-align: left; /* Optional: adjust text alignment for readability */
+  }
+}
+
+.text-title {
+  color: #000000;
+  font-size: 30px; /* Increase font size */
+  background: none; /* Remove background */
+  padding: 20px 20px; /* Add padding if necessary */
+  z-index: 2; 
+  font-weight: bold;
+  text-align: center;
+}
+
+.layout.grid {
+  z-index: 1; 
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 15px; /* Adjust padding to fit your design */
+}
+
+.grid .card1, .grid .card2, .grid .card3 {
+  flex: 1 1 90%; 
+  margin: 10px;
+  padding: 20px ;
+  background: rgba(255, 255, 255, 0.8); 
+  border: 1px solid #ddd;
+  text-align: center; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.grid .card1 h3, .grid .card2 h3, .grid .card3 h3 {
+  margin: 2%;
+}
+
+@media (min-width: 768px) {
+  .grid .card1, .grid .card2, .grid .card3 {
+      flex-basis: calc((100% / 3) - 20px); /* Three items per row with spacing */
+  }
+}
+
+.form-section {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Ensure the form is centered */
+}
+
+.form-group {
+  margin: 0.75rem 0; /* Space between each form group */
+  width: 40%; /* Control the width of the input field and label */
+  text-align: left; /* Align text to the left */
+}
+
+.form-section label {
+  display: block; /* Makes the label take the full width of the form-group */
+  margin: 0.5rem 0px;
+
+}
+
+.form-section input, .form-section textarea {
+  width: 100%; /* Full width within the form group */
+  padding: 0.5rem;
+}
+
+.form-section button {
+  padding: 0.5rem 2rem;
+  background: #333;
+  color: #fff;
+  border: none;
+  margin-top: 25px;
+  cursor: pointer;
+  width: auto; /* Adjust width to fit content */
+}
+
+@media (max-width: 768px) {
+  .text-title{
+      font-size: 25px;
+  }
+
+  .form-group{
+      width: 60%;
+  }
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 15px 0;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.footer-content{
+  display: flex;
+  justify-content: space-between; /* Ensures content is spaced out */
+  align-items: center; /* Centers items vertically */
+}
+
+.footer-icons {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0 2%; /* Adjusted padding to ensure it doesn't push icons to next line */
+  align-items: center;
+  justify-content: flex-end; /* Align icons to the right */
+  flex-wrap: nowrap; /* Prevents icons from wrapping */
+}
+
+.footer-icons .icon-link {
+  margin-left: 1%; /* Keeps a consistent spacing between icons */
+  flex-shrink: 0; /* Prevents icons from shrinking */
+}
+
+.footer-icons img {
+  height: 30px; /* Adjust size as necessary */
+}
+
+
+
+@media (min-width: 1536px) {
+.container {
+  width: 60%; /* Adjust based on your design requirements */
+  max-width: 1536px; /* Maximum width to prevent the container from getting too wide on large screens */
+  overflow: auto; /* Ensures all content is accessible on smaller screens */
+  flex-wrap: nowrap;
+  margin-left: auto;
+  margin-right: auto;
+}
 }
