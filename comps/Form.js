@@ -1,6 +1,10 @@
 import Image from 'next/image'
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'; 
+import { useState } from 'react';
 
 const Form = () => {
+    const [startDate, setStartDate] = useState(new Date());
     return (
 <section className="form-section" id="form">
 <div className="layout container">
@@ -19,6 +23,17 @@ const Form = () => {
         <div className="form-group">
             <label for="message">Message</label>
             <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <div className="form-group">
+            <label htmlFor="release-date">Select Release Date</label>
+            <DatePicker
+                id="release-date"
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                dateFormat="MMMM d, yyyy"
+                className="date-picker"
+            />
         </div>
 
         <button type="submit">Submit</button>
