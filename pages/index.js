@@ -6,6 +6,8 @@ import Navbar from "@/comps/Navbar"
 import Footer from "@/comps/Footer"
 import Banner from "@/comps/Banner"
 import AboutUs from "@/comps/AboutUs";
+import Grid from "@/comps/Grid";
+import Form from "@/comps/Form";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +23,8 @@ export default function Home() {
       <Navbar />
       <Banner />
       <AboutUs />
+      <Grid />
+      <Form />
       <Footer />
     </>
   );

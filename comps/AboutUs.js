@@ -5,7 +5,7 @@ const AboutUs = () => {
 
 <section className="about-us" id="about-us">
             <div className="container">
-                <Image src="/about-us.png" alt="About Us" layout="intrinsic" quality={100} className="about-image" width={0} height={0}/> 
+                <Image src="/about-us.png" alt="About Us" quality={100} className="about-image" width={345} height={271}/> 
                 <div className="about-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Vivamus lacinia odio vitae vestibulum. Vestibulum lorem lorem, 

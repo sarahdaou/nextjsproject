@@ -241,12 +241,30 @@ body {
 .grid .card1, .grid .card2, .grid .card3 {
   flex: 1 1 90%; 
   margin: 10px;
-  padding: 20px ;
+  padding: 20px;
   background: rgba(255, 255, 255, 0.8); 
   border: 1px solid #ddd;
   text-align: center; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
+
+.image-container {
+  position: relative;
+  width: 100%; /* Container width */
+  height: auto; /* Set height to auto to maintain aspect ratio */
+  padding-top: 56.25%; /* 16:9 aspect ratio (optional, adjust as needed) */
+  overflow: hidden;
+}
+
+.image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Preserve the image's aspect ratio */
+}
+
 
 .grid .card1 h3, .grid .card2 h3, .grid .card3 h3 {
   margin: 2%;
