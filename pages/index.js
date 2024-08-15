@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import Navbar from "@/comps/Navbar"
 import Footer from "@/comps/Footer"
 import Banner from "@/comps/Banner"
+import AboutUs from "@/comps/AboutUs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <Banner />
-
+      <AboutUs />
       <Footer />
     </>
   );
