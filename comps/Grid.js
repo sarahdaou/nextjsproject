@@ -2,10 +2,10 @@ import Image from 'next/image'
 
 const Grid = () => {
     return (
-<section>
+<section className="container">
     <div className="text-title" id="target">My Channels</div>
 
-    <div className="layout grid container">
+    <div className="layout grid ">
     <div className="card1">
                 <div className="image-container">
                     <Image src="/subscribe.png" alt="Channel 1" layout="fill" objectFit="contain" />

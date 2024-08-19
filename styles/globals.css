@@ -21,7 +21,7 @@ body {
 
 .layout {
   width: 100%;
-  max-width: 1536px; /* Maximum width */
+  max-width: 1700; /* Maximum width */
   margin: auto;
   padding: 0 15px; 
   overflow: hidden;
@@ -376,10 +376,10 @@ body {
   height: 30px; 
 }
 
-@media (min-width: 1536px) {
+@media (min-width: 1700px) {
 .container {
   width: 60%; 
-  max-width: 1536px; 
+  max-width: 1700px; 
   overflow: auto; 
   flex-wrap: nowrap;
   margin-left: auto;
