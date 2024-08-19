@@ -181,7 +181,7 @@ body {
   flex: 2 1 auto;
   font-size: 18px; /* Adjustable font size */
   text-align: justify;
-  color: #000;
+  color: #333;
   text-decoration: none;
 }
 
@@ -204,9 +204,9 @@ body {
 }
 
 .text-title {
-  color: #000000;
+  color: #333;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 30px; /* Increase font size */
+  font-size: 35px; /* Increase font size */
   background: none; /* Remove background */
   padding: 20px 20px; /* Add padding if necessary */
   z-index: 2; 
@@ -220,7 +220,7 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 10px 15px; /* Adjust padding to fit your design */
+  padding: 10px 15px;
 }
 
 .grid .card1, .grid .card2, .grid .card3 {
@@ -231,6 +231,7 @@ body {
   border: 1px solid #ddd;
   text-align: center; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  color: #333;
 }
 
 .image-container {
@@ -264,41 +265,42 @@ body {
 .form-section {
   margin: 2rem 0;
   text-align: center;
+  color: #333;
 }
 
 .form-section form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; /* Ensure the form is centered */
+  width: 100%; 
 }
 
 .form-group {
-  margin: 0.75rem 0; /* Space between each form group */
-  width: 40%; /* Control the width of the input field and label */
-  text-align: left; /* Align text to the left */
+  margin: 0.75rem 0;
+  width: 40%; 
+  text-align: left;
 }
 
 .form-section label {
-  display: block; /* Makes the label take the full width of the form-group */
+  display: block; 
   margin: 0.5rem 0px;
 
 }
 
 .form-section input {
-  width: 100%; /* Full width within the form group */
+  width: 100%; 
   padding: 0.5rem;
 }
 
 .form-section textarea{
-  width: 100%; /* Full width within the form group */
+  width: 100%; 
   padding: 0.5rem;
   height: 100px;
 }
 
 .buttons {
-  display: inline-block; /* Ensures it behaves like a button */
-  margin-top: 20px; /* Space above button */
+  display: inline-block; 
+  margin-top: 20px;
   padding: 10px 20px; 
   background-color: #333;
   color: #fff; 
@@ -335,7 +337,8 @@ body {
 
 @media (max-width: 768px) {
   .text-title{
-      font-size: 25px;
+      font-size: 30px;
+      padding: 10PX 10PX;
   }
 
   .form-group{
@@ -367,13 +370,10 @@ body {
   flex-wrap: nowrap; 
 }
 
-.footer-icons .icon-link {
-  margin-left: 1%;
+.footer-icons .pics{
+  margin-left: 7%;
   flex-shrink: 0; 
-}
-
-.footer-icons img {
-  padding-right: 10px;
+  margin-right: 7%;
 }
 
 @media (min-width: 1700px) {
