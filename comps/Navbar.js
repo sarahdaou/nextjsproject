@@ -7,7 +7,7 @@ const Navbar = () => {
 <nav className="navbar"> 
     <div className="navbar-content container">
         <div className="logo">
-            <Image src="/logo.png" alt="Site Logo" width={100} height={0} style={{ height: 'auto' }}/>
+            <Image src="/logo.png" alt="Site Logo" width={100} height={0} style={{ height: 'auto' }} />
         </div>
     <button className="burger-menu">
             <span className="bar"></span>

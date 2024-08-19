@@ -68,11 +68,11 @@ body {
   text-decoration: none;
   font-size: 18px; 
   white-space: nowrap; /* Prevent line breaks */
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .navlinks a:hover {
   color: #cccc; 
-  text-decoration: underline;
 }
 
 .burger-menu {
@@ -163,23 +163,6 @@ body {
   }
 }
 
-.banner-button {
-  display: inline-block; /* Ensures it behaves like a button */
-  margin-top: 20px; /* Space above button */
-  padding: 10px 20px; 
-  background-color: #333;
-  color: #fff; 
-  border: none; 
-  font-size: 18px; /* Font size */
-  cursor: pointer; 
-  text-decoration: none; 
-  border-radius: 5px; 
-}
-
-.banner-button:hover {
-  background-color: #555;
-}
-
 .about-us .container {
   display: flex;
   align-items: center;
@@ -211,21 +194,23 @@ body {
 
   .about-us img.about-image {
       width: 60%; /* Full width on mobile */
-      margin-bottom: 20px; /* Space below the image */
+      margin-bottom: 20px;
+      margin-right: 0px; /* Space below the image */
   }
 
   .about-us .about-text {
-      text-align: left; /* Optional: adjust text alignment for readability */
+      text-align: center; /* Optional: adjust text alignment for readability */
   }
 }
 
 .text-title {
   color: #000000;
+  font-family: 'Courier New', Courier, monospace;
   font-size: 30px; /* Increase font size */
   background: none; /* Remove background */
   padding: 20px 20px; /* Add padding if necessary */
   z-index: 2; 
-  font-weight: bold;
+  font-weight: bolder;
   text-align: center;
 }
 
@@ -300,19 +285,52 @@ body {
 
 }
 
-.form-section input, .form-section textarea {
+.form-section input {
   width: 100%; /* Full width within the form group */
   padding: 0.5rem;
 }
 
-.form-section button {
-  padding: 0.5rem 2rem;
-  background: #333;
-  color: #fff;
-  border: none;
-  margin-top: 25px;
-  cursor: pointer;
-  width: auto; /* Adjust width to fit content */
+.form-section textarea{
+  width: 100%; /* Full width within the form group */
+  padding: 0.5rem;
+  height: 100px;
+}
+
+.buttons {
+  display: inline-block; /* Ensures it behaves like a button */
+  margin-top: 20px; /* Space above button */
+  padding: 10px 20px; 
+  background-color: #333;
+  color: #fff; 
+  border: none; 
+  font-size: 18px; /* Font size */
+  cursor: pointer; 
+  text-decoration: none; 
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.buttons:hover {
+  background-color: #555;
+}
+
+.react-datepicker-wrapper {
+  width: 100%; /* Ensure the wrapper takes full width */
+  padding: 0;
+  border: 0;
+}
+
+.react-datepicker__input-container {
+  display: block;
+  width: 100%; /* Ensure the input container takes full width */
+}
+
+.react-datepicker__input-container input {
+  width: 100%; 
+  box-sizing: border-box; 
+  padding: 0.5rem; 
+  border: 1px solid #686868; 
+  border-radius: 2px; 
 }
 
 @media (max-width: 768px) {
@@ -321,7 +339,7 @@ body {
   }
 
   .form-group{
-      width: 60%;
+      width: 95%;
   }
 }
 
@@ -335,36 +353,34 @@ body {
 
 .footer-content{
   display: flex;
-  justify-content: space-between; /* Ensures content is spaced out */
-  align-items: center; /* Centers items vertically */
+  justify-content: space-between; 
+  align-items: center; 
 }
 
 .footer-icons {
   display: flex;
   list-style: none;
   margin: 0;
-  padding: 0 2%; /* Adjusted padding to ensure it doesn't push icons to next line */
+  padding: 0 2%; 
   align-items: center;
-  justify-content: flex-end; /* Align icons to the right */
-  flex-wrap: nowrap; /* Prevents icons from wrapping */
+  justify-content: flex-end;
+  flex-wrap: nowrap; 
 }
 
 .footer-icons .icon-link {
-  margin-left: 1%; /* Keeps a consistent spacing between icons */
-  flex-shrink: 0; /* Prevents icons from shrinking */
+  margin-left: 1%;
+  flex-shrink: 0; 
 }
 
 .footer-icons img {
-  height: 30px; /* Adjust size as necessary */
+  height: 30px; 
 }
-
-
 
 @media (min-width: 1536px) {
 .container {
-  width: 60%; /* Adjust based on your design requirements */
-  max-width: 1536px; /* Maximum width to prevent the container from getting too wide on large screens */
-  overflow: auto; /* Ensures all content is accessible on smaller screens */
+  width: 60%; 
+  max-width: 1536px; 
+  overflow: auto; 
   flex-wrap: nowrap;
   margin-left: auto;
   margin-right: auto;

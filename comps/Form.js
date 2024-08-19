@@ -8,11 +8,22 @@ const Form = () => {
     return (
 <section className="form-section" id="form">
 <div className="layout container">
-    <h2>Contact Us</h2>
+    <h2 className='text-title'>Contact Us</h2>
     <form>
         <div className="form-group">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" required />
+        </div>
+
+        <div className="form-group date">
+            <label htmlFor="release-date">Select Release Date</label>
+            <DatePicker
+                id="release-date"
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                dateFormat="MMMM d, yyyy"
+                className="date-picker"
+            />
         </div>
 
         <div className="form-group">
@@ -25,18 +36,7 @@ const Form = () => {
             <textarea id="message" name="message" required></textarea>
         </div>
 
-        <div className="form-group">
-            <label htmlFor="release-date">Select Release Date</label>
-            <DatePicker
-                id="release-date"
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                dateFormat="MMMM d, yyyy"
-                className="date-picker"
-            />
-        </div>
-
-        <button type="submit">Submit</button>
+        <button type="submit" className="buttons">Submit</button>
     </form>
 </div>
 </section>

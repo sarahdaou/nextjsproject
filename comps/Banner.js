@@ -4,7 +4,7 @@ const Banner = () => {
 <section className="banner">
     <div className="text-overlay container">Welcome to My Website</div>
     <div className="container">
-        <a href="#target" className="banner-button">Learn More</a>
+        <a href="#target" className="buttons">Learn More</a>
     </div>
 </section>
     );
