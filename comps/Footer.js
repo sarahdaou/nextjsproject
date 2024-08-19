@@ -8,7 +8,7 @@ const Footer = () => {
                 <p>2024 All rights reserved.</p>
             </div>
             <div className="footer-icons icon-link">
-                <Image src="/insta.png" alt="Instagram" height={40} width={0} style={{ width:'auto'}} quality={100} />
+                <Image src="/instagram-icon.png" alt="Instagram" height={30} width={30} />
                 <Image src="/whatsapp.png" alt="WhatsApp" height={30} width={0} style={{ width:'auto'}}/>
                 <Image src="/youtube.png" alt="YouTube" height={30} width={0} style={{ width:'auto'}}/>
             </div>

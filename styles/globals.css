@@ -373,7 +373,7 @@ body {
 }
 
 .footer-icons img {
-  height: 30px; 
+  padding-right: 10px;
 }
 
 @media (min-width: 1700px) {
