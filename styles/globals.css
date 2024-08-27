@@ -203,6 +203,14 @@ body {
   height: auto; /* Maintain aspect ratio */
   margin-right: 20px; /* Space between image and text */
   max-width: 100%; /* Ensure image doesn't exceed its container */
+  margin-left: 10px;
+  opacity: 0.8;
+
+}
+
+.about-us img:hover  {
+  transform: scale(1.01); /* Zoom in */
+  transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
 }
 
 .about-us .about-text {
@@ -211,6 +219,7 @@ body {
   text-align: justify; /* Justify text for better readability */
   color: #333; /* Text color */
 }
+
 
 /* Responsive design for mobile view */
 @media (max-width: 768px) {
