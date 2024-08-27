@@ -244,6 +244,7 @@ body {
   .about-us .wrapper {
     flex-direction: column; /* Stack items vertically on mobile */
     align-items: center; /* Center content on mobile */
+    width: 100%;
   }
 
   .about-us img.about-image {
