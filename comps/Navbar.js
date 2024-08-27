@@ -46,7 +46,7 @@ const Navbar = () => {
       <div className="overlay"></div>
       <nav className="navbar">
         <div className="navbar-content container">
-          <Link href="/" target="_blank" rel="noopener noreferrer" className="logo">
+          <Link href="/" rel="noopener noreferrer" className="logo">
             <Image src="/logo.png" alt="Site Logo" width={100} height={0} style={{ height: 'auto' }} />
           </Link>
           <button className="burger-menu">
