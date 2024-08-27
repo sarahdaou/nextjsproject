@@ -6,6 +6,7 @@
 
 html, body {
   height: 100%; /* ensures the full height */
+  scroll-behavior: smooth;
 }
 
 body {
@@ -30,7 +31,6 @@ body {
 .navbar {
   width: 100%;
   background-color: #333;
-  padding: 0.1rem 0;
 }
 
 .navbar-content{
@@ -44,7 +44,6 @@ body {
   width: 100px;
   height: auto;
 }
-
 .navlinks {
   display: flex;
   list-style: none;
@@ -52,15 +51,11 @@ body {
   align-items: center;
   justify-content: flex-end; 
   width: 100%;
+  position: relative; /* Ensure positioning context */
 }
 
 .links {
-  margin-left: 2%; 
-  margin-right:2%
-}
-
-.navlinks .last-link {
-  margin-right: 1.5%; 
+  margin-left: 1rem; 
 }
 
 .navlinks a {
@@ -81,7 +76,7 @@ body {
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1000;
+  z-index: 1000; /* Ensure it's on top */
   padding-right: 25px; /* Add right padding on mobile */
 }
 
@@ -95,42 +90,71 @@ body {
 }
 
 @media (max-width: 768px) {
-  .logo{
-      width: 70px;
-      height: auto;
+  .logo {
+    width: 70px;
+    height: auto;
   }
 
   .navlinks {
-    display: none;
+    display: none; /* Hidden by default */
     flex-direction: column;
-    position: absolute;
-    top: 80px;
-    right: 5px;
-    background-color: #333;
-    width: 35%;
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    width: 80vw; /* Adjust as needed */
+    max-width: 400px; /* Optional: set a max width */
     padding: 1rem;
-    z-index: 999;
+    z-index: 999; /* Ensure it's on top */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+  }
+
+  .links{
+    padding: 2rem;
+  }
+
+  .navlinks a{
+
+    font-size: 30px;
   }
 
   .navlinks.active {
-    display: flex; /* Ensure this is set to flex */
+    display: flex; /* Show when active */
   }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #333; /* Semi-transparent background */
+    display: none; /* Hidden by default */
+    z-index: 998; /* Ensure it's behind the navlinks but on top of other content */
+  }
+
+  .overlay.active {
+    display: block; /* Show when active */
+  }
+
   .burger-menu {
-      display: block;
+    display: block;
   }
 }
 
+
 .banner{
   position: relative;
-  width: 100%;
-  min-height: calc(100vh - 92.75px); /* Adjust based on your navbar height */
+  min-height: 500px ;
+  height: 90vh;
   background: url('/background.jpg') no-repeat center center;  
   background-size: cover; 
   display: flex;
   flex-direction: column;
   align-items: center; 
-  justify-content: center; /* Center content vertically */
-  text-align: center; /* Center text horizontally */
+  justify-content: center; 
+  text-align: center;
+  z-index: 1;
 }
 
 .text-overlay {
@@ -155,6 +179,7 @@ body {
       align-items: center; 
       justify-content: center; /* Center content vertically */
       text-align: center; /* Center text horizontally */
+      z-index: 1;
   }
 
   .text-overlay{
@@ -162,43 +187,46 @@ body {
   }
 }
 
-.about-us .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
+.about-us {
+  text-align: center;
+}
+
+.about-us .wrapper {
+  display: flex; 
+  flex-wrap: nowrap; 
+  justify-content: flex-start; 
+  align-items: center; /* Center items vertically */
 }
 
 .about-us img.about-image {
-  flex: 1 1 auto;
-  width: 45%; /* Adjust the width as needed */
+  flex: 1 1 auto; /* Allow the image to take up space proportionally */
   height: auto; /* Maintain aspect ratio */
   margin-right: 20px; /* Space between image and text */
+  max-width: 100%; /* Ensure image doesn't exceed its container */
 }
 
 .about-us .about-text {
-  flex: 2 1 auto;
+  flex: 2 1 auto; /* Allow the text to take up more space */
   font-size: 18px; /* Adjustable font size */
-  text-align: justify;
-  color: #333;
-  text-decoration: none;
+  text-align: justify; /* Justify text for better readability */
+  color: #333; /* Text color */
 }
 
 /* Responsive design for mobile view */
 @media (max-width: 768px) {
-  .about-us .container {
-      flex-direction: column;
-      text-align: center;
+  .about-us .wrapper {
+    flex-direction: column; /* Stack items vertically on mobile */
+    align-items: center; /* Center content on mobile */
   }
 
   .about-us img.about-image {
-      width: 60%; /* Full width on mobile */
-      margin-bottom: 20px;
-      margin-right: 0px; /* Space below the image */
+    width: 60%; /* Image takes 60% of the container width on mobile */
+    margin-right: 0; /* Remove right margin */
   }
 
   .about-us .about-text {
-      text-align: center; /* Optional: adjust text alignment for readability */
+    text-align: center; /* Center text on mobile for better readability */
+    margin: 5px;
   }
 }
 
@@ -208,6 +236,7 @@ body {
   font-size: 35px; /* Increase font size */
   background: none; /* Remove background */
   padding: 20px 20px; /* Add padding if necessary */
+  padding-bottom: 5px;
   z-index: 2; 
   font-weight: bolder;
   text-align: center;
@@ -222,7 +251,7 @@ body {
   padding: 10px 15px;
 }
 
-.grid .card1, .grid .card2, .grid .card3 {
+.grid .card{
   flex: 1 1 90%; 
   margin: 10px;
   padding: 20px;
@@ -250,20 +279,24 @@ body {
   object-fit: contain; /* Preserve the image's aspect ratio */
 }
 
+.image-container img:hover  {
+  transform: scale(1.03); /* Zoom in */
+  transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
 
-.grid .card1 h3, .grid .card2 h3, .grid .card3 h3 {
-  margin: 2%;
+.grid .card h3{
+  margin: 0.5rem
 }
 
 @media (min-width: 768px) {
-  .grid .card1, .grid .card2, .grid .card3 {
+  .grid .card{
       flex-basis: calc((100% / 3) - 20px); /* Three items per row with spacing */
   }
 }
 
 .form-section {
-  margin: 2rem 0;
-  text-align: center;
+  margin: 2rem 0; 
+  align-items: center;
   color: #333;
 }
 
@@ -271,18 +304,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; 
+  width: 40%; 
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-group {
   margin: 0.75rem 0;
-  width: 40%; 
-  text-align: left;
+  width: 100%; 
+  align-items: center;
 }
 
 .form-section label {
   display: block; 
-  margin: 0.5rem 0px;
+  margin-top: 0.5rem ;
+  text-align: left;
 
 }
 
@@ -337,10 +373,11 @@ body {
 @media (max-width: 768px) {
   .text-title{
       font-size: 30px;
-      padding: 10PX 10PX;
+      padding-top: 20PX;
+
   }
 
-  .form-group{
+  .form-section form{
       width: 95%;
   }
 }
@@ -350,7 +387,6 @@ body {
   color: #fff;
   padding: 15px 0;
   flex-shrink: 0;
-  width: 100%;
 }
 
 .footer-content{
@@ -362,26 +398,28 @@ body {
 .footer-icons {
   display: flex;
   list-style: none;
-  margin: 0;
-  padding: 0 2%; 
   align-items: center;
   justify-content: flex-end;
   flex-wrap: nowrap; 
 }
 
 .footer-icons .pics{
-  margin-left: 7%;
+  margin-left: 0.6rem;
   flex-shrink: 0; 
-  margin-right: 7%;
 }
 
-@media (min-width: 1700px) {
+.footer-icons .pics:hover{
+  transform: scale(1.09); /* Zoom in */
+  transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+
 .container {
-  width: 60%; 
+  padding: 0.1rem 15px;
+  width: 100%; 
   max-width: 1700px; 
   overflow: auto; 
   flex-wrap: nowrap;
   margin-left: auto;
   margin-right: auto;
 }
-}
+  
